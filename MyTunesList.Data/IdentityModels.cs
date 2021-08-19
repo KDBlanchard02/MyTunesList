@@ -46,20 +46,19 @@ namespace MyTunesList.Data
         }
     }
 
-        public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    {
+        public IdentityUserLoginConfiguration()
         {
-            public IdentityUserLoginConfiguration()
-            {
-                HasKey(IdentityUserLogin => IdentityUserLogin.UserId);
-            }
+            HasKey(IdentityUserLogin => IdentityUserLogin.UserId);
         }
+    }
 
-        public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
         {
-            public IdentityUserRoleConfiguration()
-            {
-                HasKey(iur => iur.UserId);
-            }
+            HasKey(iur => iur.UserId);
         }
     }
 }
