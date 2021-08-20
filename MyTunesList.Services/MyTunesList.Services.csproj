@@ -91,5 +91,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyTunesList.Data\MyTunesList.Data.csproj">
+      <Project>{90595166-93cf-4e23-94c2-a155e130939b}</Project>
+      <Name>MyTunesList.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTunesList.Models\MyTunesList.Models.csproj">
+      <Project>{a69a8fd3-95d5-408d-af82-a8cc1615e5bc}</Project>
+      <Name>MyTunesList.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
