@@ -153,15 +153,15 @@ namespace MyTunesList.Data
         [Required]
         public string Name { get; set; }
 
-        public List<string> Discography { get; set; }
+        //public List<string> Discography { get; set; }
         
         [Required]
         public DateTime FormationDate { get; set; }
 
-        public double AverageRating 
+        /*public double AverageRating 
         {
             get;
-        }
+        }*/
 
         [Required]
         public string Location { get; set; }
