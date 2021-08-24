@@ -209,7 +209,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Artist_BandController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SingleRatingController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -328,11 +330,19 @@
       <Name>MyTunesList.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyTunesList.Models\MyTunesList.Models.csproj">
+
       <Project>{a69a8fd3-95d5-408d-af82-a8cc1615e5bc}</Project>
       <Name>MyTunesList.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyTunesList.Services\MyTunesList.Services.csproj">
       <Project>{6f3f6a3a-cab7-40c7-ba8b-4c8a35d9732a}</Project>
+
+      <Project>{A69A8FD3-95D5-408D-AF82-A8CC1615E5BC}</Project>
+      <Name>MyTunesList.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTunesList.Services\MyTunesList.Services.csproj">
+      <Project>{6F3F6A3A-CAB7-40C7-BA8B-4C8A35D9732A}</Project>
+
       <Name>MyTunesList.Services</Name>
     </ProjectReference>
   </ItemGroup>
