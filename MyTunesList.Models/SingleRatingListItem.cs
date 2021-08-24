@@ -11,9 +11,9 @@ namespace MyTunesList.Models
     {
         public int SingleRatingId { get; set; }
 
-        [ForeignKey(nameof(Single))]
+        [ForeignKey(nameof(SingleTrack))]
         public int SingleId { get; set; }
-        public virtual Single Single { get; set; }
+        public virtual SingleTrack SingleTrack { get; set; }
 
         public double Rating { get; set; }
 
