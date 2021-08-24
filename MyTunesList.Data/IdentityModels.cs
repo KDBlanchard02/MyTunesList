@@ -44,6 +44,9 @@ namespace MyTunesList.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
+
+        public DbSet<AlbumRating> AlbumRatings { get; set; }
+        public DbSet <Album> Albums { get; set; }
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
