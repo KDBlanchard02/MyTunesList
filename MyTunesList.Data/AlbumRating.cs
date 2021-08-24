@@ -22,7 +22,8 @@ namespace MyTunesList.Data
         [Required]
         public double Rating { get; set; }
 
-        public DateTime DateCreated { get; set; }
+        public DateTimeOffset DateCreated { get; set; }
+        public DateTimeOffset? DateModified { get; set; }
 
         public string ReviewComment { get; set; }
     }
