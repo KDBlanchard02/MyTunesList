@@ -171,6 +171,6 @@ namespace MyTunesList.Data
 
         [Required]
         public Genre Genre { get; set; }
-
+        public Guid AuthorId { get; set; }
     }
 }
