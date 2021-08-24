@@ -39,5 +39,19 @@ namespace MyTunesList.WebAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            SingleRatingService singleRatingService = CreateSingleRatingService();
+            var singleRating = singleRatingService.GetSingleRatingById(id);
+            return Ok(singleRating);
+        }
+
+        /*public IHttpActionResult Get(int singleId)
+        {
+            SingleRatingService singleRatingService = CreateSingleRatingService();
+            var singleRatingsBySingleId = singleRatingService.GetSingleRatingBySingleId(singleId);
+            return Ok(singleRatingsBySingleId);
+        }*/
     }
 }

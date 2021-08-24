@@ -58,5 +58,59 @@ namespace MyTunesList.Services
                 return query.ToArray();
             }
         }
+
+        public Artist_BandDetail GetArtist_BandById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Artist_Bands
+                    .Single(e => e.Artist_BandId == id && e.AuthorId == _userId);
+                return
+                    new Artist_BandDetail
+                    {
+                        Artist_BandId = entity.Artist_BandId,
+                        Name = entity.Name,
+                        FormationDate = entity.FormationDate,
+                        Location = entity.Location,
+                        Description = entity.Description,
+                        Genre = entity.Genre
+                    };
+            }
+        }
+
+        public bool UpdateArtist_Band(Artist_BandEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.Artist_Bands
+                    .Single(e => e.Artist_BandId == model.Artist_BandId && e.AuthorId == _userId);
+
+                entity.Name = model.Name;
+                entity.FormationDate = model.FormationDate;
+                entity.Location = model.Location;
+                entity.Description = model.Description;
+                entity.Genre = model.Genre;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteArtist_Band(int artist_BandId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Artist_Bands
+                    .Single(e => e.Artist_BandId == artist_BandId && e.AuthorId == _userId);
+
+                ctx.Artist_Bands.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

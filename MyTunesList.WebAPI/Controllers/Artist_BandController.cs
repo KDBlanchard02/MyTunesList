@@ -39,5 +39,35 @@ namespace MyTunesList.WebAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Get(int id)
+        {
+            Artist_BandService artist_BandService = CreateArtist_BandService();
+            var artist_Band = artist_BandService.GetArtist_BandById(id);
+            return Ok(artist_Band);
+        }
+
+        public IHttpActionResult Put(Artist_BandEdit artist_Band)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateArtist_BandService();
+
+            if (!service.UpdateArtist_Band(artist_Band))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateArtist_BandService();
+
+            if (!service.DeleteArtist_Band(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }

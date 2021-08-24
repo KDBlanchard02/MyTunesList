@@ -55,5 +55,47 @@ namespace MyTunesList.Services
                 return query.ToArray();
             }
         }
+
+        public SingleRatingDetail GetSingleRatingById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .SingleRatings
+                    .Single(e => e.SingleRatingId == id && e.AuthorId == _userId);
+                return
+                    new SingleRatingDetail
+                    {
+                        SingleRatingId = entity.SingleRatingId,
+                        SingleId = entity.SingleId,
+                        Rating = entity.Rating,
+                        ReviewComment = entity.ReviewComment,
+                        DateCreated = entity.DateCreated
+                    };
+            }
+        }
+
+        /*public IEnumerable<SingleRatingListItem> GetSingleRatingBySingleId(int singleId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .SingleRatings
+                    .Where(e => e.SingleId == singleId && e.AuthorId == _userId)
+                    .Select(
+                    e =>
+                    new SingleRatingListItem
+                    {
+                        SingleRatingId = e.SingleRatingId,
+                        SingleId = e.SingleId,
+                        Rating = e.Rating,
+                        ReviewComment = e.ReviewComment,
+                        DateCreated = e.DateCreated
+                    }
+                    );
+                return query.ToArray();
+            }
+        }*/
     }
 }
