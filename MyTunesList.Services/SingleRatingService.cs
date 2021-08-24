@@ -75,27 +75,5 @@ namespace MyTunesList.Services
                     };
             }
         }
-
-        /*public IEnumerable<SingleRatingListItem> GetSingleRatingBySingleId(int singleId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query = ctx
-                    .SingleRatings
-                    .Where(e => e.SingleId == singleId && e.AuthorId == _userId)
-                    .Select(
-                    e =>
-                    new SingleRatingListItem
-                    {
-                        SingleRatingId = e.SingleRatingId,
-                        SingleId = e.SingleId,
-                        Rating = e.Rating,
-                        ReviewComment = e.ReviewComment,
-                        DateCreated = e.DateCreated
-                    }
-                    );
-                return query.ToArray();
-            }
-        }*/
     }
 }
