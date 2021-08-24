@@ -8,5 +8,8 @@ namespace MyTunesList.Models
 {
     public class AlbumRatingEdit
     {
+        public int AlbumRatingId { get; set; }
+        public double Rating { get; set; }
+        public string ReviewComment { get; set; }
     }
 }
