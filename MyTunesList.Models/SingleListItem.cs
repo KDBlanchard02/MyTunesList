@@ -13,6 +13,7 @@ namespace MyTunesList.Models
         [Display(Name = "Single ID")]
         public int SingleId { get; set; }
         public string Title { get; set; }
+        public string Artist_Band { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
        

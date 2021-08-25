@@ -54,6 +54,7 @@ namespace MyTunesList.Services
                                     SingleId = e.SingleId,
                                     Title = e.Title,
                                     CreatedUtc = e.ReleaseDate,
+                                    Artist_Band = e.Artist
                                 }
 
                          );
