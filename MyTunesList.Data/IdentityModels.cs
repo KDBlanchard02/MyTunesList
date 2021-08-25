@@ -33,7 +33,8 @@ namespace MyTunesList.Data
             return new ApplicationDbContext();
         }
 
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        public DbSet<SingleTrack> SingleTracks { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
                 .Conventions

@@ -13,13 +13,14 @@ namespace MyTunesList.Models
         [Required]
         [MinLength(1, ErrorMessage = "Please enter at least 1 character.")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
-        public int SongID { get; set; }
+        
         public string Title { get; set; }
         public override string ToString() => Title;
 
 
         [MaxLength(8000)]
-        public Genre Genre { get; set; }
+        public string Genre { get; set; }
+        //Would not allow me to put public genre Genre { get; set; }
 
         [Display(Name = "Genre Name")]
         public int GenreId { get; set; }
