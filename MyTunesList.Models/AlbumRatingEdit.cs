@@ -11,5 +11,6 @@ namespace MyTunesList.Models
         public int AlbumRatingId { get; set; }
         public double Rating { get; set; }
         public string ReviewComment { get; set; }
+        public DateTimeOffset DateModified { get; set; }
     }
 }

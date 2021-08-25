@@ -9,6 +9,7 @@ namespace MyTunesList.Models
 {
     public class AlbumRatingDetail
     {
+        //todo: add album property
         public int AlbumRatingId { get; set; }
         public Guid AuthorId { get; set; }
         //public Artist_Band Artist {get; set;}
