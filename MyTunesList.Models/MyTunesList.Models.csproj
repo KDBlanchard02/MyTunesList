@@ -93,28 +93,11 @@
     <Compile Include="AlbumRatingCreate.cs" />
     <Compile Include="AlbumRatingDetail.cs" />
     <Compile Include="AlbumRatingEdit.cs" />
-    <Compile Include="Artist_BandCreate.cs" />
-    <Compile Include="Artist_BandDetail.cs" />
-    <Compile Include="Artist_BandEdit.cs" />
-    <Compile Include="Artist_BandListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingleCreate.cs" />
-    <Compile Include="SingleDetail.cs" />
-    <Compile Include="SingleEdit.cs" />
-    <Compile Include="SingleListItem.cs" />
-    <Compile Include="SingleRatingCreate.cs" />
-    <Compile Include="SingleRatingDetail.cs" />
-    <Compile Include="SingleRatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyTunesList.Data\MyTunesList.Data.csproj">
-      <Project>{90595166-93CF-4E23-94C2-A155E130939B}</Project>
-      <Name>MyTunesList.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
