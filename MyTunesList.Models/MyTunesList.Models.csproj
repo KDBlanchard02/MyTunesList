@@ -88,11 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlbumCreate.cs" />
-    <Compile Include="AlbumDelete.cs" />
     <Compile Include="AlbumDetail.cs" />
     <Compile Include="AlbumEdit.cs" />
     <Compile Include="AlbumRatingCreate.cs" />
-    <Compile Include="AlbumRatingDelete.cs" />
     <Compile Include="AlbumRatingDetail.cs" />
     <Compile Include="AlbumRatingEdit.cs" />
     <Compile Include="Artist_BandCreate.cs" />
