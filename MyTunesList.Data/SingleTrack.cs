@@ -19,7 +19,7 @@ namespace MyTunesList.Data
         public string Genre { get; set; }
         //Would not allow me to put public genre Genre { get; set; }
         public double Length { get; set; }
-        public string Artist { get; set; }
+        public string Artist_Band { get; set; }
         [Display(Name = "Date Released")]
         public DateTimeOffset ReleaseDate { get; set; }
         [Display(Name = "Date Modified")]
