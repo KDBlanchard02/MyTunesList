@@ -11,7 +11,7 @@ namespace MyTunesList.Models
     {
         public int Artist_BandId { get; set; }
         public string Name { get; set; }
-        public DateTime FormationDate { get; set; }
+        public int FormationYear { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }
         public Genre Genre { get; set; }

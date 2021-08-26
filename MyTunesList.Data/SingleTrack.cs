@@ -11,7 +11,7 @@ namespace MyTunesList.Data
     {
         [Key]
         public int SingleId { get; set; }
-        [MaxLength(50, ErrorMessage = "There are too many characters in this field. (Max 50)")]
+        /*[MaxLength(50, ErrorMessage = "There are too many characters in this field. (Max 50)")]*/
         [Required]
         public Guid OwnerId { get; set; }
         public string Title { get; set; }
