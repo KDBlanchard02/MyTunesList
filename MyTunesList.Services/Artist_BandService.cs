@@ -21,6 +21,7 @@ namespace MyTunesList.Services
         {
             var entity = new Artist_Band()
             {
+                AuthorId = _userId,
                 Name = model.Name,
                 FormationYear = model.FormationYear,
                 Location = model.Location,
