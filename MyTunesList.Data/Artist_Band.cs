@@ -156,7 +156,7 @@ namespace MyTunesList.Data
         //public List<string> Discography { get; set; }
         
         [Required]
-        public DateTime FormationDate { get; set; }
+        public int FormationYear { get; set; }
 
         /*public double AverageRating 
         {
