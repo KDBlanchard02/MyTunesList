@@ -23,7 +23,7 @@ namespace MyTunesList.Services
             {
                 AuthorId = _userId,
                 Name = model.Name,
-                FormationDate = model.FormationDate,
+                FormationYear = model.FormationYear,
                 Location = model.Location,
                 Description = model.Description,
                 Genre = model.Genre
@@ -49,7 +49,7 @@ namespace MyTunesList.Services
                     {
                         Artist_BandId = e.Artist_BandId,
                         Name = e.Name,
-                        FormationDate = e.FormationDate,
+                        FormationYear = e.FormationYear,
                         Location = e.Location,
                         Description = e.Description,
                         Genre = e.Genre
@@ -72,7 +72,7 @@ namespace MyTunesList.Services
                     {
                         Artist_BandId = entity.Artist_BandId,
                         Name = entity.Name,
-                        FormationDate = entity.FormationDate,
+                        FormationYear = entity.FormationYear,
                         Location = entity.Location,
                         Description = entity.Description,
                         Genre = entity.Genre
@@ -89,7 +89,7 @@ namespace MyTunesList.Services
                     .Single(e => e.Artist_BandId == model.Artist_BandId && e.AuthorId == _userId);
 
                 entity.Name = model.Name;
-                entity.FormationDate = model.FormationDate;
+                entity.FormationYear = model.FormationYear;
                 entity.Location = model.Location;
                 entity.Description = model.Description;
                 entity.Genre = model.Genre;
