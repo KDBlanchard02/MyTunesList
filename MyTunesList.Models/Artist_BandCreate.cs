@@ -13,7 +13,7 @@ namespace MyTunesList.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public DateTime FormationDate { get; set; }
+        public int FormationYear { get; set; }
         [Required]
         public string Location { get; set; }
         [Required]
