@@ -20,8 +20,9 @@ namespace MyTunesList.Data
         public string Title { get; set; }
         
         public override string ToString() => Title;
-        public string Genre { get; set; }
-        //Would not allow me to put public genre Genre { get; set; }
+        [Required]
+        public Genre Genre { get; set; }
+        [Required]
         public double Length { get; set; }
 
         [Required]

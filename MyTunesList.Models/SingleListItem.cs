@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyTunesList.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,8 +16,11 @@ namespace MyTunesList.Models
         public string Title { get; set; }
         public string Artist_Band { get; set; }
         [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
-       
+        public Genre Genre { get; set; }
+        public double Length { get; set; }
+        [Display(Name = "Date Released")]
+        public DateTime ReleaseDate { get; set; }
+
     }
 
 }
