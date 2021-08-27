@@ -53,7 +53,10 @@ namespace MyTunesList.Services
                                     SingleId = e.SingleId,
                                     Title = e.Title,
                                     ReleaseDate = e.ReleaseDate,
-                                    Artist_Band = e.Artist_Band
+                                    Genre = e.Genre,
+                                    Length = e.Length,
+                                    Artist_Band = e.Artist_Band,
+                                    AverageRating = e.AverageRating
                                 }
 
                          );
@@ -74,6 +77,10 @@ namespace MyTunesList.Services
                     {
                         SingleId = entity.SingleId,
                         Title = entity.Title,
+                        Genre = entity.Genre,
+                        Length = entity.Length,
+                        Artist_Band = entity.Artist_Band,
+                        AverageRating = entity.AverageRating,
                         CreatedUtc = entity.ReleaseDate,
                         ModifiedUtc = entity.ModifiedUtc
                     };
