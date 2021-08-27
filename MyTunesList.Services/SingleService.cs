@@ -27,8 +27,7 @@ namespace MyTunesList.Services
                     Genre = model.Genre,
                     Length = model.Length,
                     Artist_Band = model.Artist_Band,
-                    ReleaseDate = DateTimeOffset.Now,
-                    AverageRating = model.AverageRating,
+                    ReleaseDate = DateTime.Now,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -53,7 +52,7 @@ namespace MyTunesList.Services
                                 {
                                     SingleId = e.SingleId,
                                     Title = e.Title,
-                                    CreatedUtc = e.ReleaseDate,
+                                    ReleaseDate = e.ReleaseDate,
                                     Artist_Band = e.Artist_Band
                                 }
 
