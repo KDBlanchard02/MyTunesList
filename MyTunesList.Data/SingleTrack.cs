@@ -16,8 +16,7 @@ namespace MyTunesList.Data
         public Guid OwnerId { get; set; }
         public string Title { get; set; }
         public override string ToString() => Title;
-        public string Genre { get; set; }
-        //Would not allow me to put public genre Genre { get; set; }
+        public Genre Genre { get; set; }
         public double Length { get; set; }
         public string Artist_Band { get; set; }
         [Display(Name = "Date Released")]
