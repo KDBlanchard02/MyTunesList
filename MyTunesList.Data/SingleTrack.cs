@@ -29,7 +29,7 @@ namespace MyTunesList.Data
         public string Artist_Band { get; set; }
 
         [Display(Name = "Date Released")]
-        public DateTimeOffset ReleaseDate { get; set; }
+        public DateTime ReleaseDate { get; set; }
         [Display(Name = "Date Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 

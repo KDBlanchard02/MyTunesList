@@ -10,7 +10,6 @@ namespace MyTunesList.Models
 {
     public class SingleCreate
     {
-
         [Required]
         [MinLength(1, ErrorMessage = "Please enter at least 1 character.")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
@@ -27,7 +26,6 @@ namespace MyTunesList.Models
         [Display(Name = "Date Released")]
         [Required]
         public DateTime ReleaseDate { get; set; }
-        [Range(1, 5)]
     }
 }
 

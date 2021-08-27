@@ -20,7 +20,6 @@ namespace MyTunesList.Models
         public double Length { get; set; }
         [Display(Name = "Date Released")]
         public DateTime ReleaseDate { get; set; }
-
     }
 
 }
