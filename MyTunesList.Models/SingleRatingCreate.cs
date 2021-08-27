@@ -15,5 +15,8 @@ namespace MyTunesList.Models
         [Required]
         [MaxLength(3000)]
         public string ReviewComment { get; set; }
+
+        [Required]
+        public int SingleId { get; set; }
     }
 }
