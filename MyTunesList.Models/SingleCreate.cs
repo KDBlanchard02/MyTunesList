@@ -26,7 +26,7 @@ namespace MyTunesList.Models
         public int GenreId { get; set; }
         public string GenreName { get; set; }
         public double Length { get; set; }
-        public string Artist { get; set; }
+        public string Artist_Band { get; set; }
         [Display(Name = "Date Released")]
         public DateTime ReleaseDate { get; set; }
         [Range(1,5)]

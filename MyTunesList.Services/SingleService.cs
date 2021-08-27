@@ -26,7 +26,7 @@ namespace MyTunesList.Services
                     Title = model.Title,
                     Genre = model.Genre,
                     Length = model.Length,
-                    Artist = model.Artist,
+                    Artist_Band = model.Artist_Band,
                     ReleaseDate = DateTimeOffset.Now,
                     AverageRating = model.AverageRating,
                 };
@@ -54,7 +54,7 @@ namespace MyTunesList.Services
                                     SingleId = e.SingleId,
                                     Title = e.Title,
                                     CreatedUtc = e.ReleaseDate,
-                                    Artist_Band = e.Artist
+                                    Artist_Band = e.Artist_Band
                                 }
 
                          );
