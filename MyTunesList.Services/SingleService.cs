@@ -28,7 +28,6 @@ namespace MyTunesList.Services
                     Length = model.Length,
                     Artist_Band = model.Artist_Band,
                     ReleaseDate = DateTimeOffset.Now,
-                    AverageRating = model.AverageRating,
                 };
 
             using (var ctx = new ApplicationDbContext())
