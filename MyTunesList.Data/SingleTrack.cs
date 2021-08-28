@@ -35,7 +35,7 @@ namespace MyTunesList.Data
 
         public virtual List<SingleRating> Ratings { get; set; } = new List<SingleRating>();
         public double AverageRating 
-        { 
+        {
             get
             {
                 double totalAverageRating = 0;
@@ -51,6 +51,7 @@ namespace MyTunesList.Data
                     ? Math.Round(totalAverageRating / Ratings.Count, 2) // if Ratings.Count > 0
                     : 0; // if Ratings.Count not > 0
             }
+            set { }
         }
     }
 }

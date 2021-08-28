@@ -23,6 +23,7 @@ namespace MyTunesList.Services
             {
                 AuthorId = _userId,
                 Rating = model.Rating,
+                SingleId = model.SingleId,
                 ReviewComment = model.ReviewComment,
                 DateCreated = DateTimeOffset.Now
             };
