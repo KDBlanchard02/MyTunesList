@@ -34,49 +34,6 @@ namespace MyTunesList.Data
         public DateTime ReleaseDate { get; set; }
         [Display(Name = "Date Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
-
-        public List<double> Ratings = GetRatingList().ToList();
-
-        public static IEnumerable<double> GetRatingList()
-        {
-            string connectionString = GetConnectionString();
-            using (var connection = new SqlConnection(connectionString))
-            using (var cmd = connection.CreateCommand())
-            {
-                connection.Open();
-                cmd.CommandText = "SELECT Rating FROM SingleRating WHERE SingleRating.SingleId = SingleId";
-                using (var reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        yield return reader.GetDouble(reader.GetOrdinal("Rating"));
-                    }
-                }
-            }
-        }
-        static private string GetConnectionString()
-        {
-            return "Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=MyTunesList;Integrated Security=True";
-        }
-
-        public double AverageRating 
-        {
-            get
-            {
-                double totalAverageRating = 0;
-
-                //add all ratings
-                foreach (var rating in Ratings)
-                {
-                    totalAverageRating += rating;
-                }
-
-                //get average from total
-                return Ratings.Count > 0
-                    ? Math.Round(totalAverageRating / Ratings.Count, 2) // if Ratings.Count > 0
-                    : 0; // if Ratings.Count not > 0
-            }
-            set { }
-        }
+        public double AverageRating { get; set; }
     }
 }
