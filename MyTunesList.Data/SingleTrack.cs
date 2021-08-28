@@ -44,7 +44,7 @@ namespace MyTunesList.Data
             using (var cmd = connection.CreateCommand())
             {
                 connection.Open();
-                cmd.CommandText = "select Rating from SingleRating where SingleRating.SingleId = SingleId"; // update select command accordingly
+                cmd.CommandText = "SELECT Rating FROM SingleRating WHERE SingleRating.SingleId = SingleId"; // update select command accordingly
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
