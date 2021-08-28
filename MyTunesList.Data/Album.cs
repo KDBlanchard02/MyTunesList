@@ -44,9 +44,8 @@ namespace MyTunesList.Data
             }
         }
 
-        /*[Required]
-         * public Artist_Band Artist {get; set;}
-         */
+        [Required]
+        public Artist_Band Artist {get; set;}
 
         public Guid AuthorizedAlbumCreator { get; set; }
     }
