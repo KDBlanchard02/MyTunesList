@@ -44,7 +44,7 @@ namespace MyTunesList.Data
             using (var cmd = connection.CreateCommand())
             {
                 connection.Open();
-                cmd.CommandText = "SELECT Rating FROM SingleRating WHERE SingleRating.SingleId = SingleId"; // update select command accordingly
+                cmd.CommandText = "SELECT Rating FROM SingleRating WHERE SingleRating.SingleId = SingleId";
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -56,9 +56,7 @@ namespace MyTunesList.Data
         }
         static private string GetConnectionString()
         {
-            // To avoid storing the connection string in your code,
-            // you can retrieve it from a configuration file.
-            return "Data Source=MSSQL1;Initial Catalog=MyTunesList;Integrated Security=True";
+            return "Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=MyTunesList;Integrated Security=True";
         }
 
         public double AverageRating 
