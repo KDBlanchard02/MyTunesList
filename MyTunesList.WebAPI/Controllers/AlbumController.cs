@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using MyTunesList.Models;
+using MyTunesList.Data;
 
 namespace MyTunesList.WebAPI.Controllers
 {
@@ -27,31 +28,54 @@ namespace MyTunesList.WebAPI.Controllers
             return authorizedUserAlbumService;
         }
 
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(Artist_Band artist)
         {
             RegularUserAlbumService regularUserAlbumService = CreateRegularUserAlbumService();
-            var albums = regularUserAlbumService.GetAlbums();
+            var albums = regularUserAlbumService.GetAlbumsByArtist(artist);
             return Ok(albums);
         }
 
         public IHttpActionResult Get(int id)
         {
-            RegularUserAlbumService regularUserAlbumService = 
+            RegularUserAlbumService regularUserAlbumService = CreateRegularUserAlbumService();
+            var album = regularUserAlbumService.GetAlbumByAlbumId(id);
+            return Ok(album);
         }
 
         public IHttpActionResult Post(AlbumCreate album)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            var service = CreateAuthorizedUserAlbumService();
+
+            if (!service.CreateAlbum(album))
+                return InternalServerError();
+
+            return Ok();
         }
 
         public IHttpActionResult Put(AlbumEdit album)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            var service = CreateAuthorizedUserAlbumService();
+
+            if (!service.UpdateAlbum(album))
+                return InternalServerError();
+
+            return Ok();
         }
 
         public IHttpActionResult Delete(int id)
         {
+            var service = CreateAuthorizedUserAlbumService();
 
+            if (!service.DeleteAlbum(id))
+                return InternalServerError();
+
+            return Ok();
         }
     }
 
