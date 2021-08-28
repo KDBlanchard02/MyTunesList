@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.Azure.Amqp.Framing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +35,25 @@ namespace MyTunesList.Data
         [Display(Name = "Date Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        public virtual List<SingleRating> Ratings { get; set; } = new List<SingleRating>();
+        public List<double> Ratings = GetRatingList().ToList();
+
+        public static IEnumerable<double> GetRatingList(string connectionString =  "DefaultConnection")
+        {
+            ;
+            using (var connection = new SqlConnection(connectionString))
+            using (var cmd = connection.CreateCommand())
+            {
+                connection.Open();
+                cmd.CommandText = "select Rating from SingleRating where SingleRating.SingleId = SingleId"; // update select command accordingly
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        yield return reader.GetDouble(reader.GetOrdinal("Rating"));
+                    }
+                }
+            }
+        }
         public double AverageRating 
         {
             get
@@ -43,7 +63,7 @@ namespace MyTunesList.Data
                 //add all ratings
                 foreach (var rating in Ratings)
                 {
-                    totalAverageRating += rating.Rating;
+                    totalAverageRating += rating;
                 }
 
                 //get average from total
