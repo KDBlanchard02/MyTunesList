@@ -37,9 +37,9 @@ namespace MyTunesList.Data
 
         public List<double> Ratings = GetRatingList().ToList();
 
-        public static IEnumerable<double> GetRatingList(string connectionString =  "DefaultConnection")
+        public static IEnumerable<double> GetRatingList()
         {
-            ;
+            string connectionString = GetConnectionString();
             using (var connection = new SqlConnection(connectionString))
             using (var cmd = connection.CreateCommand())
             {
@@ -54,6 +54,13 @@ namespace MyTunesList.Data
                 }
             }
         }
+        static private string GetConnectionString()
+        {
+            // To avoid storing the connection string in your code,
+            // you can retrieve it from a configuration file.
+            return "Data Source=MSSQL1;Initial Catalog=MyTunesList;Integrated Security=True";
+        }
+
         public double AverageRating 
         {
             get
