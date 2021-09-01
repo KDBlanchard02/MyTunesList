@@ -28,6 +28,7 @@ namespace MyTunesList.WebAPI.Controllers
             return authorizedUserAlbumService;
         }
 
+        //I decided not to do a "get all" because hypothetically that would just be a huge request that would probably crash normal computers
         public IHttpActionResult Get(Artist_Band artist)
         {
             RegularUserAlbumService regularUserAlbumService = CreateRegularUserAlbumService();

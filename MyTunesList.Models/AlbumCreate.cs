@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyTunesList.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace MyTunesList.Models
 {
     public class AlbumCreate
     {
-        /*[Required]
-        public Artist_Band Artist { get; set; }*/
+        [Required]
+        public Artist_Band Artist { get; set; }
 
         [Required]
         public string AlbumTitle { get; set; }

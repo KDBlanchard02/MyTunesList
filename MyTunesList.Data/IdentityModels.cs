@@ -40,6 +40,9 @@ namespace MyTunesList.Data
 
         public DbSet<SingleRating> SingleRatings { get; set; }
 
+        public DbSet<AlbumRating> AlbumRatings { get; set; }
+
+        public DbSet <Album> Albums { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -54,8 +57,6 @@ namespace MyTunesList.Data
                 .Add(new IdentityUserRoleConfiguration());
         }
 
-        public DbSet<AlbumRating> AlbumRatings { get; set; }
-        public DbSet <Album> Albums { get; set; }
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
