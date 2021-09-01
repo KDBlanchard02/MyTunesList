@@ -72,13 +72,10 @@ namespace MyTunesList.Services
                         ReviewComment = entity.ReviewComment,
                         DateCreated = entity.DateCreated,
                         DateModified = entity.DateModified,
-                        //todo: add album property
+                        Album = entity.Album
                     };
             }
         }
-
-        //public IEnumerable<AlbumRatingListItem>
-        //todo: add AlbumRatingListItem to Models
 
         public bool EditAlbumRating(AlbumRatingEdit model)
         {
