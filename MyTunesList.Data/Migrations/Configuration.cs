@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "MyTunesList.Data.ApplicationDbContext";
         }
 
         protected override void Seed(MyTunesList.Data.ApplicationDbContext context)

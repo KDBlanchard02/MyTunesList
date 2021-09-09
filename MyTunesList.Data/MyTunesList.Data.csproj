@@ -141,33 +141,9 @@
     <Compile Include="AlbumRating.cs" />
     <Compile Include="Artist_Band.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202108192337325_InitialCreate.cs" />
-    <Compile Include="Migrations\202108192337325_InitialCreate.designer.cs">
-      <DependentUpon>202108192337325_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108262312402_initialMigration.cs" />
-    <Compile Include="Migrations\202108262312402_initialMigration.designer.cs">
-      <DependentUpon>202108262312402_initialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270107215_update-database.cs" />
-    <Compile Include="Migrations\202108270107215_update-database.designer.cs">
-      <DependentUpon>202108270107215_update-database.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270120135_UpdatedDatabaseForTheThirdTime.cs" />
-    <Compile Include="Migrations\202108270120135_UpdatedDatabaseForTheThirdTime.designer.cs">
-      <DependentUpon>202108270120135_UpdatedDatabaseForTheThirdTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108270126036_UpdatedSnleRating1.cs" />
-    <Compile Include="Migrations\202108270126036_UpdatedSnleRating1.designer.cs">
-      <DependentUpon>202108270126036_UpdatedSnleRating1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108281635355_AddedSqlReaderVOne.cs" />
-    <Compile Include="Migrations\202108281635355_AddedSqlReaderVOne.designer.cs">
-      <DependentUpon>202108281635355_AddedSqlReaderVOne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202108281819460_Update.cs" />
-    <Compile Include="Migrations\202108281819460_Update.designer.cs">
-      <DependentUpon>202108281819460_Update.cs</DependentUpon>
+    <Compile Include="Migrations\202109022217362_InitialCreate.cs" />
+    <Compile Include="Migrations\202109022217362_InitialCreate.designer.cs">
+      <DependentUpon>202109022217362_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -179,26 +155,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202108192337325_InitialCreate.resx">
-      <DependentUpon>202108192337325_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108262312402_initialMigration.resx">
-      <DependentUpon>202108262312402_initialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270107215_update-database.resx">
-      <DependentUpon>202108270107215_update-database.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270120135_UpdatedDatabaseForTheThirdTime.resx">
-      <DependentUpon>202108270120135_UpdatedDatabaseForTheThirdTime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108270126036_UpdatedSnleRating1.resx">
-      <DependentUpon>202108270126036_UpdatedSnleRating1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108281635355_AddedSqlReaderVOne.resx">
-      <DependentUpon>202108281635355_AddedSqlReaderVOne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202108281819460_Update.resx">
-      <DependentUpon>202108281819460_Update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109022217362_InitialCreate.resx">
+      <DependentUpon>202109022217362_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

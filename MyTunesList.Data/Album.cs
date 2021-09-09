@@ -16,8 +16,7 @@ namespace MyTunesList.Data
         [Required]
         public string AlbumTitle { get; set; }
 
-        [Required]
-        public double Length { get; set; }
+        //Removed length, I don't really see it being necessary but may add it back in as a stretch goal, time permitting
 
         [Required]
         public DateTime ReleaseDate { get; set; }
@@ -41,11 +40,11 @@ namespace MyTunesList.Data
             }
         }
 
-        [ForeignKey(nameof(Artist_Band))]
-        public int ArtistId { get; set; }
+        //[ForeignKey(nameof(Artist_Band))]
+        //public int ArtistId { get; set; }
 
         [Required]
-        public virtual Artist_Band Artist {get; set;}
+        public string Artist_Band {get; set;}
 
         //Only the creators of albums should be able to delete them, so this needed to be added
         [Required]

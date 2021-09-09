@@ -29,9 +29,8 @@ namespace MyTunesList.Services
                     new AlbumDetail
                     {
                         AlbumId = entity.AlbumId,
-                        Artist = entity.Artist,
+                        Artist = entity.Artist_Band,
                         AlbumTitle = entity.AlbumTitle,
-                        Length = entity.Length,
                         ReleaseDate = entity.ReleaseDate,
                         SongList = entity.SongList,
                         AverageRating = entity.AverageRating
@@ -39,21 +38,22 @@ namespace MyTunesList.Services
             }
         }
 
-        public IEnumerable<AlbumListItem> GetAlbumsByArtist(Artist_Band artist)
+        public IEnumerable<AlbumListItem> GetAlbumsByArtist(string artist)
         {
+
             using (var context = new ApplicationDbContext())
             {
                 var query =
                     context
                         .Albums
-                        .Where(e => e.Artist == artist)
+                        .Where(e => e.Artist_Band == artist)
                         .Select(
                         e =>
                             new AlbumListItem 
                             {
                                 AlbumId = e.AlbumId,
                                 Title = e.AlbumTitle,
-                                Artist = e.Artist,
+                                Artist = e.Artist_Band,
                                 ReleaseDate = e.ReleaseDate
                             }
                             );

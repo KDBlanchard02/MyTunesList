@@ -15,6 +15,6 @@ namespace MyTunesList.Models
         public DateTime ReleaseDate { get; set; }
         public List<string> SongList { get; set; }
         public double AverageRating { get; set; }
-        public Artist_Band Artist {get; set;}
+        public string Artist {get; set;}
     }
 }
