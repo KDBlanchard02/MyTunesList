@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyTunesList.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,8 +20,7 @@ namespace MyTunesList.Models
 
 
         [MaxLength(8000)]
-        public string Genre { get; set; }
-        //Would not allow me to put public genre Genre { get; set; }
+        public Genre Genre { get; set; }
 
         [Display(Name = "Genre Name")]
         public int GenreId { get; set; }

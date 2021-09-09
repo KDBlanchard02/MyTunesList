@@ -13,11 +13,10 @@ namespace MyTunesList.Data
         public int SingleId { get; set; }
         [MaxLength(50, ErrorMessage = "There are too many characters in this field. (Max 50)")]
         [Required]
-        public Guid OwnerId { get; set; }
+        public Guid AuthorId { get; set; } 
+        [Required]
         public string Title { get; set; }
-        public override string ToString() => Title;
-        public string Genre { get; set; }
-        //Would not allow me to put public genre Genre { get; set; }
+        public Genre Genre { get; set; }
         public double Length { get; set; }
         public string Artist_Band { get; set; }
         [Display(Name = "Date Released")]

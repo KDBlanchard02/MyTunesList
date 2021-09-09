@@ -22,7 +22,7 @@ namespace MyTunesList.Services
             var entity =
                 new SingleTrack()
                 {
-                    OwnerId = _singleId,
+                    AuthorId = _singleId,
                     Title = model.Title,
                     Genre = model.Genre,
                     Length = model.Length,
@@ -46,7 +46,7 @@ namespace MyTunesList.Services
                 var query =
                     ctx
                         .SingleTracks
-                        .Where(e => e.OwnerId == _singleId)
+                        .Where(e => e.AuthorId == _singleId)
                         .Select(
                             e =>
                                 new SingleListItem
@@ -69,7 +69,7 @@ namespace MyTunesList.Services
                 var entity =
                     ctx
                         .SingleTracks
-                        .Single(e => e.SingleId == id && e.OwnerId == _singleId);
+                        .Single(e => e.SingleId == id && e.AuthorId == _singleId);
                 return
                     new SingleDetail
                     {
@@ -81,18 +81,21 @@ namespace MyTunesList.Services
             }
         }
 
-        public bool UpdateSingle(SingleEdit model)
+        public bool UpdateSingleTrack(SingleEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .SingleTracks
-                        .Single(e => e.SingleId == model.SingleId && e.OwnerId == _singleId);
+                        .Single(e => e.SingleId == model.SingleId && e.AuthorId == _singleId);
 
                 entity.Title = model.Title;
+                entity.Genre = model.Genre;
+                entity.Artist_Band = model.Artist_Band;
+                entity.Length = model.Length;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
-
+                
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -103,7 +106,7 @@ namespace MyTunesList.Services
                 var entity =
                     ctx
                         .SingleTracks
-                        .Single(e => e.SingleId == singleId && e.OwnerId == _singleId);
+                        .Single(e => e.SingleId == singleId && e.AuthorId == _singleId);
 
                 ctx.SingleTracks.Remove(entity);
 

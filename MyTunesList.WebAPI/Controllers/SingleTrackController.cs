@@ -53,7 +53,7 @@ namespace MyTunesList.WebAPI.Controllers
 
             var service = CreateSingleService();
 
-            if (!service.UpdateSingle(single))
+            if (!service.UpdateSingleTrack(single))
                 return InternalServerError();
 
             return Ok();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyTunesList.Data;
+using System; 
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ namespace MyTunesList.Models
     {
         public int SingleId { get; set; }
         public string Title { get; set; }
-        
+        public Genre Genre { get; set; }
+        public string Artist_Band { get; set; }
+        public double Length { get; set; }
     }
 }
