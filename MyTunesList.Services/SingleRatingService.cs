@@ -31,9 +31,25 @@ namespace MyTunesList.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.SingleRatings.Add(entity);
+               
                 return ctx.SaveChanges() == 1;
             }
         }
+
+       /* public bool AddAverageRating(SingleRatingCreate model)
+        {
+            SingleRating addRate = new SingleRating();
+            addRate.SingleId = model.SingleId;
+            addRate.Rating = model.Rating;
+
+            using(var context = new ApplicationDbContext())
+            {
+                context.SingleRatings.Add(addRate);
+                context.SaveChanges();
+                SingleService myRate = new SingleService();
+                myRate.AverageSingleRatings 
+            }
+        }*/
 
         public IEnumerable<SingleRatingListItem> GetSingleRatings()
         {

@@ -34,18 +34,27 @@ namespace MyTunesList.Services
             }
         }
 
-        /*public IEnumerable<AlbumRating> GetAlbumRatingsForAnAlbumByAlbumId(int albumId)
+        public IEnumerable<AlbumRatingListItem> GetAlbumRatingsForAnAlbumByAlbumId(int albumId)
         {
             using (var context = new ApplicationDbContext())
             {
                 var query =
                     context
-                        .Albums
-                        .Single(e => e.AlbumId == albumId);
-                return
-                    new Album
+                        .AlbumRatings
+                        .Where(e => e.AlbumId == albumId)
+                        .Select(
+                            e => new AlbumRatingListItem
+                            {
+                                AlbumRatingId = e.AlbumRatingId,
+                                AuthorId = e.AuthorId,
+                                Rating = e.Rating,
+                                ReviewComment = e.ReviewComment,
+                                DateCreated = e.DateCreated,
+                                DateModified = e.DateModified
+                            });
+                return query.ToArray();
             }
-        }*/
+        }
 
         public AlbumRatingDetail GetAlbumRatingByAlbumRatingId(int id)
         {
@@ -63,13 +72,10 @@ namespace MyTunesList.Services
                         ReviewComment = entity.ReviewComment,
                         DateCreated = entity.DateCreated,
                         DateModified = entity.DateModified,
-                        //todo: add album property
+                        Album = entity.Album
                     };
             }
         }
-
-        //public IEnumerable<AlbumRatingListItem>
-        //todo: add AlbumRatingListItem to Models
 
         public bool EditAlbumRating(AlbumRatingEdit model)
         {

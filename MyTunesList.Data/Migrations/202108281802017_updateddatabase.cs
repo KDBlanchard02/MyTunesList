@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class UpdatedDatabaseForTheThirdTime : DbMigration
+    public partial class updateddatabase : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.SingleTrack", "AverageRating", c => c.Double(nullable: false));
+            DropColumn("dbo.SingleTrack", "AverageRating");
         }
         
         public override void Down()
         {
-            DropColumn("dbo.SingleTrack", "AverageRating");
+            AddColumn("dbo.SingleTrack", "AverageRating", c => c.Double(nullable: false));
         }
     }
 }

@@ -12,13 +12,14 @@ namespace MyTunesList.Data
     {
         [Key]
         public int AlbumRatingId { get; set; }
-        //todo: add foreign key to album
 
         public Guid AuthorId { get; set; }
+
 
         [ForeignKey(nameof(Album))]
         public int AlbumId { get; set; }
         public virtual Album Album { get; set; }
+
 
         [Required]
         public double Rating { get; set; }

@@ -117,6 +117,35 @@ namespace MyTunesList.Services
             }
         }
 
+        /* public bool AverageSingleRatings(int singleId, double rating)
+         {
+
+             using (var ctx = new ApplicationDbContext())
+             {
+                 var entity =
+                     ctx
+                     .SingleRatings
+                     .Single(e => e.SingleId == singleId);
+
+                 ctx.SingleRatings.Average
+             }
+
+
+
+             /*double totalAverageRating = 0;
+
+             //add all ratings
+             foreach (var Rating in SingleRating)
+             {
+                 totalAverageRating += rating;
+             }
+
+             //get average from total
+             return Ratings.Count > 0
+                 ? Math.Round(totalAverageRating / Ratings.Count, 2) // if Ratings.Count > 0
+                 : 0; // if Ratings.Count not > 0*/
     }
+
+    
 }
 

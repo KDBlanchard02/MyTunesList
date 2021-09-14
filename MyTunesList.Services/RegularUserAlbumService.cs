@@ -17,11 +17,6 @@ namespace MyTunesList.Services
             _userId = userId;
         }
 
-        /*public IEnumerable<AlbumListItem> GetListOfAlbums()
-        {
-            todo: create albumlistitem
-        }*/
-
         public AlbumDetail GetAlbumByAlbumId(int id)
         {
             using (var context = new ApplicationDbContext())
@@ -34,13 +29,35 @@ namespace MyTunesList.Services
                     new AlbumDetail
                     {
                         AlbumId = entity.AlbumId,
-                        //Artist = entity.Artist,
+                        Artist = entity.Artist_Band,
                         AlbumTitle = entity.AlbumTitle,
-                        Length = entity.Length,
                         ReleaseDate = entity.ReleaseDate,
                         SongList = entity.SongList,
                         AverageRating = entity.AverageRating
                     };
+            }
+        }
+
+        public IEnumerable<AlbumListItem> GetAlbumsByArtist(string artist)
+        {
+
+            using (var context = new ApplicationDbContext())
+            {
+                var query =
+                    context
+                        .Albums
+                        .Where(e => e.Artist_Band == artist)
+                        .Select(
+                        e =>
+                            new AlbumListItem 
+                            {
+                                AlbumId = e.AlbumId,
+                                Title = e.AlbumTitle,
+                                Artist = e.Artist_Band,
+                                ReleaseDate = e.ReleaseDate
+                            }
+                            );
+                return query.ToArray();
             }
         }
     }

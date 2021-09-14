@@ -21,9 +21,8 @@ namespace MyTunesList.Services
         {
             var entity = new Album
             {
-                //Artist = model.Artist,
+                Artist_Band = model.Artist,
                 AlbumTitle = model.AlbumTitle,
-                Length = model.Length,
                 ReleaseDate = model.ReleaseDate,
                 SongList = model.SongList
             };
@@ -44,9 +43,8 @@ namespace MyTunesList.Services
                         .Albums
                         .Single(e => e.AlbumId == model.AlbumId && e.AuthorizedAlbumCreator == _authorizedUserId);
                 entity.AlbumId = model.AlbumId;
-                //entity.Artist = model.Artist;
+                entity.Artist_Band = model.Artist;
                 entity.AlbumTitle = model.AlbumTitle;
-                entity.Length = model.Length;
                 entity.SongList = model.SongList;
                 entity.ReleaseDate = model.ReleaseDate;
 

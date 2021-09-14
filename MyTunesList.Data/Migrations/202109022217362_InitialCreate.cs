@@ -8,6 +8,51 @@
         public override void Up()
         {
             CreateTable(
+                "dbo.AlbumRating",
+                c => new
+                    {
+                        AlbumRatingId = c.Int(nullable: false, identity: true),
+                        AuthorId = c.Guid(nullable: false),
+                        AlbumId = c.Int(nullable: false),
+                        Rating = c.Double(nullable: false),
+                        DateCreated = c.DateTimeOffset(nullable: false, precision: 7),
+                        DateModified = c.DateTimeOffset(precision: 7),
+                        ReviewComment = c.String(),
+                    })
+                .PrimaryKey(t => t.AlbumRatingId)
+                .ForeignKey("dbo.Album", t => t.AlbumId, cascadeDelete: true)
+                .Index(t => t.AlbumId);
+            
+            CreateTable(
+                "dbo.Album",
+                c => new
+                    {
+                        AlbumId = c.Int(nullable: false, identity: true),
+                        AlbumTitle = c.String(nullable: false),
+                        Length = c.Double(nullable: false),
+                        ReleaseDate = c.DateTime(nullable: false),
+                        AuthorizedAlbumCreator = c.Guid(nullable: false),
+                        Artist_Artist_BandId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.AlbumId)
+                .ForeignKey("dbo.Artist_Band", t => t.Artist_Artist_BandId, cascadeDelete: true)
+                .Index(t => t.Artist_Artist_BandId);
+            
+            CreateTable(
+                "dbo.Artist_Band",
+                c => new
+                    {
+                        Artist_BandId = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false),
+                        FormationYear = c.Int(nullable: false),
+                        Location = c.String(nullable: false),
+                        Description = c.String(nullable: false),
+                        Genre = c.Int(nullable: false),
+                        AuthorId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.Artist_BandId);
+            
+            CreateTable(
                 "dbo.IdentityRole",
                 c => new
                     {
@@ -30,6 +75,37 @@
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.IdentityRole_Id)
                 .Index(t => t.ApplicationUser_Id);
+            
+            CreateTable(
+                "dbo.SingleRating",
+                c => new
+                    {
+                        SingleRatingId = c.Int(nullable: false, identity: true),
+                        SingleId = c.Int(nullable: false),
+                        Rating = c.Double(nullable: false),
+                        DateCreated = c.DateTimeOffset(nullable: false, precision: 7),
+                        ReviewComment = c.String(nullable: false),
+                        AuthorId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.SingleRatingId)
+                .ForeignKey("dbo.SingleTrack", t => t.SingleId, cascadeDelete: true)
+                .Index(t => t.SingleId);
+            
+            CreateTable(
+                "dbo.SingleTrack",
+                c => new
+                    {
+                        SingleId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        Title = c.String(nullable: false),
+                        Genre = c.Int(nullable: false),
+                        Length = c.Double(nullable: false),
+                        Artist_Band = c.String(nullable: false),
+                        ReleaseDate = c.DateTime(nullable: false),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                        AverageRating = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.SingleId);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -84,16 +160,27 @@
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
+            DropForeignKey("dbo.SingleRating", "SingleId", "dbo.SingleTrack");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.AlbumRating", "AlbumId", "dbo.Album");
+            DropForeignKey("dbo.Album", "Artist_Artist_BandId", "dbo.Artist_Band");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.SingleRating", new[] { "SingleId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Album", new[] { "Artist_Artist_BandId" });
+            DropIndex("dbo.AlbumRating", new[] { "AlbumId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
+            DropTable("dbo.SingleTrack");
+            DropTable("dbo.SingleRating");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Artist_Band");
+            DropTable("dbo.Album");
+            DropTable("dbo.AlbumRating");
         }
     }
 }
