@@ -23,5 +23,4 @@ namespace MyTunesList.Models
         public double AverageRating { get; set; }
 
     }
-
 }
