@@ -48,6 +48,6 @@ namespace MyTunesList.Data
 
         //Only the creators of albums should be able to delete them, so this needed to be added
         [Required]
-        public Guid AuthorizedAlbumCreator { get; set; }
+        public Guid AlbumCreator { get; set; }
     }
 }

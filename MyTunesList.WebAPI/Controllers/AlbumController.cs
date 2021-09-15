@@ -14,31 +14,24 @@ namespace MyTunesList.WebAPI.Controllers
 
     public class AlbumController : ApiController
     {
-        private RegularUserAlbumService CreateRegularUserAlbumService()
+        private AlbumService CreateAlbumService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var regularUserAlbumService = new RegularUserAlbumService(userId);
+            var regularUserAlbumService = new AlbumService(userId);
             return regularUserAlbumService;
         }
 
-        private AuthorizedUserAlbumService CreateAuthorizedUserAlbumService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var authorizedUserAlbumService = new AuthorizedUserAlbumService(userId);
-            return authorizedUserAlbumService;
-        }
-
         //I decided not to do a "get all" because hypothetically that would just be a huge request that would probably crash normal computers
-        public IHttpActionResult Get(Artist_Band artist)
+        public IHttpActionResult Get(string artist)
         {
-            RegularUserAlbumService regularUserAlbumService = CreateRegularUserAlbumService();
+            AlbumService regularUserAlbumService = CreateAlbumService();
             var albums = regularUserAlbumService.GetAlbumsByArtist(artist);
             return Ok(albums);
         }
 
         public IHttpActionResult Get(int id)
         {
-            RegularUserAlbumService regularUserAlbumService = CreateRegularUserAlbumService();
+            AlbumService regularUserAlbumService = CreateAlbumService();
             var album = regularUserAlbumService.GetAlbumByAlbumId(id);
             return Ok(album);
         }
@@ -48,7 +41,7 @@ namespace MyTunesList.WebAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreateAuthorizedUserAlbumService();
+            var service = CreateAlbumService();
 
             if (!service.CreateAlbum(album))
                 return InternalServerError();
@@ -61,7 +54,7 @@ namespace MyTunesList.WebAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreateAuthorizedUserAlbumService();
+            var service = CreateAlbumService();
 
             if (!service.UpdateAlbum(album))
                 return InternalServerError();
@@ -71,7 +64,7 @@ namespace MyTunesList.WebAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
-            var service = CreateAuthorizedUserAlbumService();
+            var service = CreateAlbumService();
 
             if (!service.DeleteAlbum(id))
                 return InternalServerError();
