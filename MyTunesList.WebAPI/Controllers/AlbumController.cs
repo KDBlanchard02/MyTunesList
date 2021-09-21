@@ -17,22 +17,28 @@ namespace MyTunesList.WebAPI.Controllers
         private AlbumService CreateAlbumService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var regularUserAlbumService = new AlbumService(userId);
-            return regularUserAlbumService;
+            var albumService = new AlbumService(userId);
+            return albumService;
         }
 
-        //I decided not to do a "get all" because hypothetically that would just be a huge request that would probably crash normal computers
+        public IHttpActionResult Get()
+        {
+            AlbumService albumService = CreateAlbumService();
+            var albums = albumService.GetAllAlbums();
+            return Ok(albums);
+        }
+
         public IHttpActionResult Get(string artist)
         {
-            AlbumService regularUserAlbumService = CreateAlbumService();
-            var albums = regularUserAlbumService.GetAlbumsByArtist(artist);
+            AlbumService albumService = CreateAlbumService();
+            var albums = albumService.GetAlbumsByArtist(artist);
             return Ok(albums);
         }
 
         public IHttpActionResult Get(int id)
         {
-            AlbumService regularUserAlbumService = CreateAlbumService();
-            var album = regularUserAlbumService.GetAlbumByAlbumId(id);
+            AlbumService albumService = CreateAlbumService();
+            var album = albumService.GetAlbumByAlbumId(id);
             return Ok(album);
         }
 

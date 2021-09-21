@@ -77,7 +77,24 @@ namespace MyTunesList.Services
             }
         }
 
-
+        public IEnumerable<AlbumListItem> GetAllAlbums()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var query = context
+                    .Albums
+                    .Select(
+                    e =>
+                    new AlbumListItem
+                    {
+                        AlbumId = e.AlbumId,
+                        Title = e.AlbumTitle,
+                        Artist = e.Artist_Band,
+                        ReleaseYear = e.ReleaseYear
+                    });
+                return query.ToArray();
+            }
+        }
 
         public bool UpdateAlbum(AlbumEdit model)
         {
