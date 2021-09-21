@@ -23,7 +23,7 @@ namespace MyTunesList.Services
                 AlbumCreator = _userId,
                 Artist_Band = model.Artist,
                 AlbumTitle = model.AlbumTitle,
-                ReleaseDate = model.ReleaseDate,
+                ReleaseYear = model.ReleaseYear,
                 SongList = model.SongList
             };
 
@@ -49,7 +49,7 @@ namespace MyTunesList.Services
                                 AlbumId = e.AlbumId,
                                 Title = e.AlbumTitle,
                                 Artist = e.Artist_Band,
-                                ReleaseDate = e.ReleaseDate
+                                ReleaseYear = e.ReleaseYear
                             }
                             );
                 return query.ToArray();
@@ -70,7 +70,7 @@ namespace MyTunesList.Services
                         AlbumId = entity.AlbumId,
                         Artist = entity.Artist_Band,
                         AlbumTitle = entity.AlbumTitle,
-                        ReleaseDate = entity.ReleaseDate,
+                        ReleaseYear = entity.ReleaseYear,
                         SongList = entity.SongList,
                         AverageRating = entity.AverageRating
                     };
@@ -91,7 +91,7 @@ namespace MyTunesList.Services
                 entity.Artist_Band = model.Artist;
                 entity.AlbumTitle = model.AlbumTitle;
                 entity.SongList = model.SongList;
-                entity.ReleaseDate = model.ReleaseDate;
+                entity.ReleaseYear = model.ReleaseYear;
 
                 return context.SaveChanges() == 1;
             }
