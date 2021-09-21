@@ -19,9 +19,9 @@ namespace MyTunesList.Data
         //Removed length, I don't really see it being necessary but may add it back in as a stretch goal, time permitting
 
         [Required]
-        public DateTime ReleaseDate { get; set; }
+        public int ReleaseYear { get; set; }
 
-        public List<string> SongList { get; set; }
+        public string SongList { get; set; }
 
         public virtual List<AlbumRating> Ratings { get; set; } = new List<AlbumRating>();
         [Range(1, 5)]
