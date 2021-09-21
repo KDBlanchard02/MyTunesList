@@ -17,9 +17,9 @@ namespace MyTunesList.Models
         public string AlbumTitle { get; set; }
 
         [Required]
-        public DateTime ReleaseDate { get; set; }
+        public int ReleaseYear { get; set; }
 
-        public List<string> SongList { get; set; }
+        public string SongList { get; set; }
 
     }
 }
