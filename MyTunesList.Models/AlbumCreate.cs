@@ -10,7 +10,7 @@ namespace MyTunesList.Models
     public class AlbumCreate
     {
         [Required]
-        public string Artist { get; set; }
+        public string Artist_Band { get; set; }
 
         [Required]
         public string AlbumTitle { get; set; }

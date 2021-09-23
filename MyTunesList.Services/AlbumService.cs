@@ -16,12 +16,13 @@ namespace MyTunesList.Services
         {
             _userId = userId;
         }
+
         public bool CreateAlbum(AlbumCreate model)
         {
-            var entity = new Album
+            var entity = new Album()
             {
-                AlbumCreator = _userId,
-                Artist_Band = model.Artist,
+                AuthorId = _userId,
+                Artist_Band = model.Artist_Band,
                 AlbumTitle = model.AlbumTitle,
                 ReleaseYear = model.ReleaseYear,
                 SongList = model.SongList
@@ -104,7 +105,7 @@ namespace MyTunesList.Services
                 var entity =
                     context
                         .Albums
-                        .Single(e => e.AlbumId == model.AlbumId && e.AlbumCreator == _userId);
+                        .Single(e => e.AlbumId == model.AlbumId && e.AuthorId == _userId);
                 entity.AlbumId = model.AlbumId;
                 entity.Artist_Band = model.Artist;
                 entity.AlbumTitle = model.AlbumTitle;
@@ -122,7 +123,7 @@ namespace MyTunesList.Services
                 var entity =
                     context
                         .Albums
-                        .Single(e => e.AlbumId == albumId && e.AlbumCreator == _userId);
+                        .Single(e => e.AlbumId == albumId && e.AuthorId == _userId);
                 context.Albums.Remove(entity);
                 return context.SaveChanges() == 1;
             }

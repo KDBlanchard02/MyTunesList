@@ -13,13 +13,16 @@ namespace MyTunesList.Data
         public int AlbumId { get; set; }
 
         [Required]
-        public Guid AlbumCreator { get; set; }
-
-        [Required]
         public string AlbumTitle { get; set; }
 
         [Required]
         public int ReleaseYear { get; set; }
+
+        [Required]
+        public Guid AuthorId { get; set; }
+
+        [Required]
+        public string Artist_Band { get; set; }
 
         public string SongList { get; set; }
 
@@ -40,7 +43,5 @@ namespace MyTunesList.Data
             }
         }
 
-        [Required]
-        public string Artist_Band { get; set; }
     }
 }
