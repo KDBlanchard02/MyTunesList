@@ -17,10 +17,10 @@ namespace MyTunesList.Data
 
         [Required]
         public int ReleaseYear { get; set; }
-
+        
         [Required]
         public Guid AuthorId { get; set; }
-
+        
         [Required]
         public string Artist_Band { get; set; }
 

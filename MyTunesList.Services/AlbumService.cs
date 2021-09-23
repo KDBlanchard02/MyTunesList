@@ -17,7 +17,7 @@ namespace MyTunesList.Services
             _userId = userId;
         }
 
-        public bool CreateAlbum(AlbumCreate model)
+        public void CreateAlbum(AlbumCreate model)
         {
             var entity = new Album()
             {
@@ -31,8 +31,10 @@ namespace MyTunesList.Services
             using (var context = new ApplicationDbContext())
             {
                 context.Albums.Add(entity);
-                return context.SaveChanges() == 1;
+                //return context.SaveChanges() == 1;
+                context.SaveChanges();
             }
+            
         }
 
         public IEnumerable<AlbumListItem> GetAlbumsByArtist(string artist)
@@ -85,6 +87,7 @@ namespace MyTunesList.Services
             {
                 var query = context
                     .Albums
+                    .Where(e => e.AuthorId == _userId)
                     .Select(
                     e =>
                     new AlbumListItem

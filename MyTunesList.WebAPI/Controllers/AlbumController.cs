@@ -40,7 +40,7 @@ namespace MyTunesList.WebAPI.Controllers
             var album = albumService.GetAlbumByAlbumId(id);
             return Ok(album);
         }
-
+        
         public IHttpActionResult Post(AlbumCreate album)
         {
             if (!ModelState.IsValid)
@@ -48,12 +48,12 @@ namespace MyTunesList.WebAPI.Controllers
 
             var service = CreateAlbumService();
 
-            if (!service.CreateAlbum(album))
-                return InternalServerError();
+            //if (!service.CreateAlbum(album))
+              //  return InternalServerError();
 
             return Ok();
         }
-
+        
         public IHttpActionResult Put(AlbumEdit album)
         {
             if (!ModelState.IsValid)

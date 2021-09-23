@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class InitialMigration : DbMigration
     {
         public override void Up()
         {
@@ -29,14 +29,12 @@
                     {
                         AlbumId = c.Int(nullable: false, identity: true),
                         AlbumTitle = c.String(nullable: false),
-                        Length = c.Double(nullable: false),
-                        ReleaseDate = c.DateTime(nullable: false),
-                        AuthorizedAlbumCreator = c.Guid(nullable: false),
-                        Artist_Artist_BandId = c.Int(nullable: false),
+                        ReleaseYear = c.Int(nullable: false),
+                        AuthorId = c.Guid(nullable: false),
+                        Artist_Band = c.String(nullable: false),
+                        SongList = c.String(),
                     })
-                .PrimaryKey(t => t.AlbumId)
-                .ForeignKey("dbo.Artist_Band", t => t.Artist_Artist_BandId, cascadeDelete: true)
-                .Index(t => t.Artist_Artist_BandId);
+                .PrimaryKey(t => t.AlbumId);
             
             CreateTable(
                 "dbo.Artist_Band",
@@ -163,13 +161,11 @@
             DropForeignKey("dbo.SingleRating", "SingleId", "dbo.SingleTrack");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.AlbumRating", "AlbumId", "dbo.Album");
-            DropForeignKey("dbo.Album", "Artist_Artist_BandId", "dbo.Artist_Band");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.SingleRating", new[] { "SingleId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.Album", new[] { "Artist_Artist_BandId" });
             DropIndex("dbo.AlbumRating", new[] { "AlbumId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
