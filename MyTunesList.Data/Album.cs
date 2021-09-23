@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MyTunesList.Data
 {
+    [Table("Album")]
     public class Album
     {
         [Key]
@@ -27,7 +29,8 @@ namespace MyTunesList.Data
         public string SongList { get; set; }
 
         public virtual List<AlbumRating> Ratings { get; set; } = new List<AlbumRating>();
-        [Range(1, 5)]
+
+        [Range(0, 5)]
         public double AverageRating
         {
             get

@@ -48,8 +48,8 @@ namespace MyTunesList.WebAPI.Controllers
 
             var service = CreateAlbumService();
 
-            //if (!service.CreateAlbum(album))
-              //  return InternalServerError();
+            if (!service.CreateAlbum(album))
+                return InternalServerError();
 
             return Ok();
         }

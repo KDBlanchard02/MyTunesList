@@ -17,7 +17,7 @@ namespace MyTunesList.Services
             _userId = userId;
         }
 
-        public void CreateAlbum(AlbumCreate model)
+        public bool CreateAlbum(AlbumCreate model)
         {
             var entity = new Album()
             {
@@ -31,8 +31,7 @@ namespace MyTunesList.Services
             using (var context = new ApplicationDbContext())
             {
                 context.Albums.Add(entity);
-                //return context.SaveChanges() == 1;
-                context.SaveChanges();
+                return context.SaveChanges() == 1;
             }
             
         }
