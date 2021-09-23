@@ -88,9 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlbumRatingService.cs" />
     <Compile Include="Artist_BandService.cs" />
-    <Compile Include="AlbumService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleRatingService.cs" />
     <Compile Include="SingleService.cs" />

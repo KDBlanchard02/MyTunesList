@@ -87,14 +87,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlbumCreate.cs" />
-    <Compile Include="AlbumDetail.cs" />
-    <Compile Include="AlbumEdit.cs" />
-    <Compile Include="AlbumListItem.cs" />
-    <Compile Include="AlbumRatingCreate.cs" />
-    <Compile Include="AlbumRatingDetail.cs" />
-    <Compile Include="AlbumRatingEdit.cs" />
-    <Compile Include="AlbumRatingListItem.cs" />
     <Compile Include="Artist_BandCreate.cs" />
     <Compile Include="Artist_BandDetail.cs" />
     <Compile Include="Artist_BandEdit.cs" />
