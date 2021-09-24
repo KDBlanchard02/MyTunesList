@@ -24,6 +24,8 @@ namespace MyTunesList.Data
         [Required]
         public DateTimeOffset DateCreated { get; set; }
 
+        public DateTimeOffset? DateModified { get; set; }
+
         [Required]
         public string ReviewComment { get; set; }
 

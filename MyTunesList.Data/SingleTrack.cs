@@ -33,7 +33,7 @@ namespace MyTunesList.Data
         [Display(Name = "Date Released")]
         public DateTime ReleaseDate { get; set; }
         [Display(Name = "Date Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset? DateModified { get; set; }
 
         public virtual List<SingleRating> Ratings { get; set; } = new List<SingleRating>();
         public double AverageRating { get

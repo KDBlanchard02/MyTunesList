@@ -46,5 +46,28 @@ namespace MyTunesList.WebAPI.Controllers
             var singleRating = singleRatingService.GetSingleRatingById(id);
             return Ok(singleRating);
         }
+
+        public IHttpActionResult Put(SingleRatingEdit rating)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateSingleRatingService();
+
+            if (!service.EditSingleRating(rating))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateSingleRatingService();
+
+            if (!service.DeleteSingleRating(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }

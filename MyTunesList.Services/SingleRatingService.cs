@@ -36,7 +36,8 @@ namespace MyTunesList.Services
             }
         }
 
-       /* public bool AddAverageRating(SingleRatingCreate model)
+       /* Note from Catie: AverageRating is calculated in the SingleTrack class so a service is not needed
+        * public bool AddAverageRating(SingleRatingCreate model)
         {
             SingleRating addRate = new SingleRating();
             addRate.SingleId = model.SingleId;
@@ -90,6 +91,36 @@ namespace MyTunesList.Services
                         ReviewComment = entity.ReviewComment,
                         DateCreated = entity.DateCreated
                     };
+            }
+        }
+
+        public bool EditSingleRating(SingleRatingEdit model)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var entity =
+                    context
+                        .SingleRatings
+                        .Single(e => e.SingleRatingId == model.SingleRatingId && e.AuthorId == _userId);
+                entity.SingleRatingId = model.SingleRatingId;
+                entity.Rating = model.Rating;
+                entity.ReviewComment = model.ReviewComment;
+                entity.DateModified = DateTimeOffset.UtcNow;
+
+                return context.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteSingleRating(int singleRatingId)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var entity =
+                    context
+                        .SingleRatings
+                        .Single(e => e.SingleRatingId == singleRatingId && e.AuthorId == _userId);
+                context.SingleRatings.Remove(entity);
+                return context.SaveChanges() == 1;
             }
         }
     }

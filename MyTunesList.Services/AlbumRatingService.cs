@@ -22,6 +22,7 @@ namespace MyTunesList.Services
             var entity = new AlbumRating
             {
                 AuthorId = _userId,
+                AlbumId = model.AlbumId,
                 Rating = model.Rating,
                 ReviewComment = model.ReviewComment,
                 DateCreated = DateTimeOffset.Now
@@ -41,7 +42,7 @@ namespace MyTunesList.Services
                 var query =
                     context
                         .AlbumRatings
-                        .Where(e => e.AlbumId == albumId)
+                        .Where(e => e.AlbumId == albumId && e.AuthorId == _userId)
                         .Select(
                             e => new AlbumRatingListItem
                             {
@@ -63,7 +64,7 @@ namespace MyTunesList.Services
                 var entity =
                     context
                         .AlbumRatings
-                        .Single(e => e.AlbumRatingId == id);
+                        .Single(e => e.AlbumRatingId == id && e.AuthorId == _userId);
                 return
                     new AlbumRatingDetail
                     {
