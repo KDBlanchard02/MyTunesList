@@ -106,6 +106,7 @@
     <Compile Include="SingleListItem.cs" />
     <Compile Include="SingleRatingCreate.cs" />
     <Compile Include="SingleRatingDetail.cs" />
+    <Compile Include="SingleRatingEdit.cs" />
     <Compile Include="SingleRatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>

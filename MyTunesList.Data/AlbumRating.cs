@@ -13,6 +13,7 @@ namespace MyTunesList.Data
         [Key]
         public int AlbumRatingId { get; set; }
 
+        [Required]
         public Guid AuthorId { get; set; }
 
 

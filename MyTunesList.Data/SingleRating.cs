@@ -18,7 +18,7 @@ namespace MyTunesList.Data
 
         public virtual SingleTrack SingleTrack { get; set; }
 
-        [Required, Range(1, 5)]
+        [Required, Range(0, 5)]
         public double Rating { get; set; }
 
         [Required]
