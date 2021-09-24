@@ -115,7 +115,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyTunesList.Data\MyTunesList.Data.csproj">
-      <Project>{90595166-93CF-4E23-94C2-A155E130939B}</Project>
+      <Project>{90595166-93cf-4e23-94c2-a155e130939b}</Project>
       <Name>MyTunesList.Data</Name>
     </ProjectReference>
   </ItemGroup>
