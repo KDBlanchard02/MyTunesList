@@ -27,13 +27,6 @@ namespace MyTunesList.WebAPI.Controllers
             return Ok(albums);
         }
 
-        public IHttpActionResult Get(string artist)
-        {
-            AlbumService albumService = CreateAlbumService();
-            var albums = albumService.GetAlbumsByArtist(artist);
-            return Ok(albums);
-        }
-
         public IHttpActionResult Get(int id)
         {
             AlbumService albumService = CreateAlbumService();

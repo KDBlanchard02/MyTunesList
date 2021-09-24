@@ -36,29 +36,6 @@ namespace MyTunesList.Services
             
         }
 
-        public IEnumerable<AlbumListItem> GetAlbumsByArtist(string artist)
-        {
-
-            using (var context = new ApplicationDbContext())
-            {
-                var query =
-                    context
-                        .Albums
-                        .Where(e => e.Artist_Band == artist)
-                        .Select(
-                        e =>
-                            new AlbumListItem
-                            {
-                                AlbumId = e.AlbumId,
-                                Title = e.AlbumTitle,
-                                Artist = e.Artist_Band,
-                                ReleaseYear = e.ReleaseYear
-                            }
-                            );
-                return query.ToArray();
-            }
-        }
-
         public AlbumDetail GetAlbumByAlbumId(int id)
         {
             using (var context = new ApplicationDbContext())
@@ -108,7 +85,6 @@ namespace MyTunesList.Services
                     context
                         .Albums
                         .Single(e => e.AlbumId == model.AlbumId && e.AuthorId == _userId);
-                entity.AlbumId = model.AlbumId;
                 entity.Artist_Band = model.Artist;
                 entity.AlbumTitle = model.AlbumTitle;
                 entity.SongList = model.SongList;
