@@ -14,7 +14,6 @@ namespace MyTunesList.Models
         [MinLength(1, ErrorMessage = "Please enter at least 1 character.")]
         [MaxLength(100, ErrorMessage = "There are too many characters in this field.")]
         public string Title { get; set; }
-        public override string ToString() => Title;
         [Required]
         public Genre Genre { get; set; }
         [Required]
