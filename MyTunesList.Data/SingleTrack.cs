@@ -34,6 +34,19 @@ namespace MyTunesList.Data
         public DateTime ReleaseDate { get; set; }
         [Display(Name = "Date Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
-        public double AverageRating { get; set; }
+
+        public virtual List<SingleRating> Ratings { get; set; } = new List<SingleRating>();
+        public double AverageRating { get
+            {
+                double totalAverageRating = 0;
+                foreach (var rating in Ratings)
+                {
+                    totalAverageRating += rating.Rating;
+                }
+                return Ratings.Count > 0
+                    ? Math.Round(totalAverageRating / Ratings.Count, 2) // if Ratings.Count > 0
+                    : 0; // if Ratings.Count not > 0
+            }
+        }
     }
 }
