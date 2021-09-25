@@ -87,27 +87,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlbumCreate.cs" />
-    <Compile Include="AlbumDetail.cs" />
-    <Compile Include="AlbumEdit.cs" />
-    <Compile Include="AlbumListItem.cs" />
-    <Compile Include="AlbumRatingCreate.cs" />
-    <Compile Include="AlbumRatingDetail.cs" />
-    <Compile Include="AlbumRatingEdit.cs" />
-    <Compile Include="AlbumRatingListItem.cs" />
-    <Compile Include="Artist_BandCreate.cs" />
-    <Compile Include="Artist_BandDetail.cs" />
-    <Compile Include="Artist_BandEdit.cs" />
-    <Compile Include="Artist_BandListItem.cs" />
+    <Compile Include="AlbumModels\AlbumCreate.cs" />
+    <Compile Include="AlbumModels\AlbumDetail.cs" />
+    <Compile Include="AlbumModels\AlbumEdit.cs" />
+    <Compile Include="AlbumModels\AlbumListItem.cs" />
+    <Compile Include="AlbumRatingModels\AlbumRatingCreate.cs" />
+    <Compile Include="AlbumRatingModels\AlbumRatingDetail.cs" />
+    <Compile Include="AlbumRatingModels\AlbumRatingEdit.cs" />
+    <Compile Include="AlbumRatingModels\AlbumRatingListItem.cs" />
+    <Compile Include="Artist_BandModels\Artist_BandCreate.cs" />
+    <Compile Include="Artist_BandModels\Artist_BandDetail.cs" />
+    <Compile Include="Artist_BandModels\Artist_BandEdit.cs" />
+    <Compile Include="Artist_BandModels\Artist_BandListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingleCreate.cs" />
-    <Compile Include="SingleDetail.cs" />
-    <Compile Include="SingleEdit.cs" />
-    <Compile Include="SingleListItem.cs" />
-    <Compile Include="SingleRatingCreate.cs" />
-    <Compile Include="SingleRatingDetail.cs" />
-    <Compile Include="SingleRatingEdit.cs" />
-    <Compile Include="SingleRatingListItem.cs" />
+    <Compile Include="SingleTrackModels\SingleCreate.cs" />
+    <Compile Include="SingleTrackModels\SingleDetail.cs" />
+    <Compile Include="SingleTrackModels\SingleEdit.cs" />
+    <Compile Include="SingleTrackModels\SingleListItem.cs" />
+    <Compile Include="SingleRatingModels\SingleRatingCreate.cs" />
+    <Compile Include="SingleRatingModels\SingleRatingDetail.cs" />
+    <Compile Include="SingleRatingModels\SingleRatingEdit.cs" />
+    <Compile Include="SingleRatingModels\SingleRatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
