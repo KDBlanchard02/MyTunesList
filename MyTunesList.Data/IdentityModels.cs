@@ -40,6 +40,8 @@ namespace MyTunesList.Data
 
         public DbSet<SingleRating> SingleRatings { get; set; }
 
+        
+
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
