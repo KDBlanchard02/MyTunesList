@@ -48,6 +48,8 @@ namespace MyTunesList.Services
                             {
                                 AlbumRatingId = e.AlbumRatingId,
                                 AuthorId = e.AuthorId,
+                                AlbumTitle = e.Album.AlbumTitle,
+                                ArtistName = e.Album.Artist_Band,
                                 Rating = e.Rating,
                                 ReviewComment = e.ReviewComment,
                                 DateCreated = e.DateCreated,
@@ -64,17 +66,21 @@ namespace MyTunesList.Services
                 var entity =
                     context
                         .AlbumRatings
-                        .Single(e => e.AlbumRatingId == id && e.AuthorId == _userId);
+                        .Single(e => e.AlbumRatingId == id);
                 return
-                    new AlbumRatingDetail
-                    {
-                        AlbumRatingId = entity.AlbumRatingId,
-                        Rating = entity.Rating,
-                        ReviewComment = entity.ReviewComment,
-                        DateCreated = entity.DateCreated,
-                        DateModified = entity.DateModified,
-                        Album = entity.Album
-                    };
+                new AlbumRatingDetail
+                {
+                    AlbumRatingId = entity.AlbumRatingId,
+                    AlbumId = entity.Album.AlbumId,
+                    AlbumArtist = entity.Album.Artist_Band,
+                    AuthorId = entity.AuthorId,
+                    AlbumTitle = entity.Album.AlbumTitle,
+                    Rating = entity.Rating,
+                    ReviewComment = entity.ReviewComment,
+                    DateCreated = entity.DateCreated,
+                    DateModified = entity.DateModified
+                };
+                        
             }
         }
 

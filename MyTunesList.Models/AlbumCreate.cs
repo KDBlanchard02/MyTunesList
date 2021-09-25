@@ -13,6 +13,8 @@ namespace MyTunesList.Models
         public string Artist_Band { get; set; }
 
         [Required]
+        [MinLength(1, ErrorMessage = "Please enter at least 1 character.")]
+        [MaxLength(1000, ErrorMessage = "There are too many characters in this field. (Max: 1,000)")]
         public string AlbumTitle { get; set; }
 
         [Required]
