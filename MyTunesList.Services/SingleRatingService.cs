@@ -50,9 +50,11 @@ namespace MyTunesList.Services
                     {
                         SingleRatingId = e.SingleRatingId,
                         SingleId = e.SingleId,
+                        SingleTrackTitle = e.SingleTrack.Title,
                         Rating = e.Rating,
                         ReviewComment = e.ReviewComment,
-                        DateCreated = e.DateCreated
+                        DateCreated = e.DateCreated,
+                        DateModified = e.DateModified
                     }
                     );
                 return query.ToArray();
@@ -72,9 +74,11 @@ namespace MyTunesList.Services
                     {
                         SingleRatingId = entity.SingleRatingId,
                         SingleId = entity.SingleId,
+                        SingleTrackTitle = entity.SingleTrack.Title,
                         Rating = entity.Rating,
                         ReviewComment = entity.ReviewComment,
-                        DateCreated = entity.DateCreated
+                        DateCreated = entity.DateCreated,
+                        DateModified = entity.DateModified,
                     };
             }
         }

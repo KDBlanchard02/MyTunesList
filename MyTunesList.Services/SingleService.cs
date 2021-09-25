@@ -54,7 +54,6 @@ namespace MyTunesList.Services
                                     ReleaseDate = e.ReleaseDate,
                                     Genre = e.Genre,
                                     Artist_Band = e.Artist_Band,
-                                    AverageRating = e.AverageRating
                                 }
 
                          );
@@ -93,6 +92,9 @@ namespace MyTunesList.Services
                         .Single(e => e.SingleId == model.SingleId && e.OwnerId == _singleId);
 
                 entity.Title = model.Title;
+                entity.Genre = model.Genre;
+                entity.Artist_Band = model.Artist_Band;
+                entity.ReleaseDate = model.ReleaseDate;
 
                 return ctx.SaveChanges() == 1;
             }

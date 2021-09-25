@@ -14,12 +14,14 @@ namespace MyTunesList.Models
 
         [ForeignKey(nameof(SingleTrack))]
         public int SingleId { get; set; }
-        public virtual SingleTrack SingleTrack { get; set; }
+        private SingleTrack SingleTrack { get; set; }
+        public string SingleTrackTitle { get; set; }
 
         public double Rating { get; set; }
 
         public string ReviewComment { get; set; }
 
         public DateTimeOffset DateCreated { get; set; }
+        public DateTimeOffset? DateModified { get; set; }
     }
 }
