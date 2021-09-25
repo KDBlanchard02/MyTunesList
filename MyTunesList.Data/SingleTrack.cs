@@ -21,7 +21,6 @@ namespace MyTunesList.Data
         [Required]
         public string Title { get; set; }
         
-        public override string ToString() => Title; //Note from Catie: I do not know why this is here
         [Required]
         public Genre Genre { get; set; }
 
