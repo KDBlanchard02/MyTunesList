@@ -20,7 +20,7 @@ namespace MyTunesList.Models
         public double Length { get; set; }
         public string Artist_Band { get; set; }
         [Display(Name = "Date Released")]
-        public DateTime ReleaseDate { get; set; }
+        public int ReleaseDate { get; set; }
         public double AverageRating { get; set; }
 
     }

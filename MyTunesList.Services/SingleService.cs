@@ -25,9 +25,8 @@ namespace MyTunesList.Services
                     OwnerId = _singleId,
                     Title = model.Title,
                     Genre = model.Genre,
-                    Length = model.Length,
                     Artist_Band = model.Artist_Band,
-                    ReleaseDate = DateTime.Now,
+                    ReleaseDate = model.ReleaseDate,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -54,7 +53,6 @@ namespace MyTunesList.Services
                                     Title = e.Title,
                                     ReleaseDate = e.ReleaseDate,
                                     Genre = e.Genre,
-                                    Length = e.Length,
                                     Artist_Band = e.Artist_Band,
                                     AverageRating = e.AverageRating
                                 }
@@ -78,11 +76,9 @@ namespace MyTunesList.Services
                         SingleId = entity.SingleId,
                         Title = entity.Title,
                         Genre = entity.Genre,
-                        Length = entity.Length,
                         Artist_Band = entity.Artist_Band,
                         AverageRating = entity.AverageRating,
-                        CreatedUtc = entity.ReleaseDate,
-                        ModifiedUtc = entity.DateModified
+                        ReleaseDate = entity.ReleaseDate,
                     };
             }
         }
@@ -97,7 +93,6 @@ namespace MyTunesList.Services
                         .Single(e => e.SingleId == model.SingleId && e.OwnerId == _singleId);
 
                 entity.Title = model.Title;
-                entity.DateModified = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -117,33 +112,6 @@ namespace MyTunesList.Services
             }
         }
 
-        /* public bool AverageSingleRatings(int singleId, double rating)
-         {
-
-             using (var ctx = new ApplicationDbContext())
-             {
-                 var entity =
-                     ctx
-                     .SingleRatings
-                     .Single(e => e.SingleId == singleId);
-
-                 ctx.SingleRatings.Average
-             }
-
-
-
-             /*double totalAverageRating = 0;
-
-             //add all ratings
-             foreach (var Rating in SingleRating)
-             {
-                 totalAverageRating += rating;
-             }
-
-             //get average from total
-             return Ratings.Count > 0
-                 ? Math.Round(totalAverageRating / Ratings.Count, 2) // if Ratings.Count > 0
-                 : 0; // if Ratings.Count not > 0*/
     }
 
     

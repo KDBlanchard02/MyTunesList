@@ -36,21 +36,6 @@ namespace MyTunesList.Services
             }
         }
 
-       /* Note from Catie: AverageRating is calculated in the SingleTrack class so a service is not needed
-        * public bool AddAverageRating(SingleRatingCreate model)
-        {
-            SingleRating addRate = new SingleRating();
-            addRate.SingleId = model.SingleId;
-            addRate.Rating = model.Rating;
-
-            using(var context = new ApplicationDbContext())
-            {
-                context.SingleRatings.Add(addRate);
-                context.SaveChanges();
-                SingleService myRate = new SingleService();
-                myRate.AverageSingleRatings 
-            }
-        }*/
 
         public IEnumerable<SingleRatingListItem> GetSingleRatings()
         {
