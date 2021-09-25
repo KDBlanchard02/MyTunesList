@@ -20,20 +20,23 @@ namespace MyTunesList.WebAPI.Controllers
             return albumService;
         }
 
-        public IHttpActionResult GetRatingsByAlbumID(int id)
+        [HttpGet]
+        public IHttpActionResult GetRatingsByAlbumID(int albumId)
         {
             AlbumRatingService albumService = CreateAlbumRatingService();
-            var albums = albumService.GetAlbumRatingsForAnAlbumByAlbumId(id);
+            var albums = albumService.GetAlbumRatingsForAnAlbumByAlbumId(albumId);
             return Ok(albums);
         }
 
-        public IHttpActionResult GetRatingByRatingID(int id)
+        [HttpGet]
+        public IHttpActionResult GetRatingByRatingID(int ratingId)
         {
             AlbumRatingService albumService = CreateAlbumRatingService();
-            var albums = albumService.GetAlbumRatingByAlbumRatingId(id);
+            var albums = albumService.GetAlbumRatingByAlbumRatingId(ratingId);
             return Ok(albums);
         }
 
+        [HttpPost]
         public IHttpActionResult Post(AlbumRatingCreate model)
         {
             if (!ModelState.IsValid)
@@ -47,6 +50,7 @@ namespace MyTunesList.WebAPI.Controllers
             return Ok();
         }
 
+        [HttpPut]
         public IHttpActionResult Put(AlbumRatingEdit model)
         {
             if (!ModelState.IsValid)
@@ -60,6 +64,7 @@ namespace MyTunesList.WebAPI.Controllers
             return Ok();
         }
 
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateAlbumRatingService();

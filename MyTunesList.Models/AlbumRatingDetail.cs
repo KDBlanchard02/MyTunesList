@@ -11,17 +11,17 @@ namespace MyTunesList.Models
 {
     public class AlbumRatingDetail
     {
+        [Key]
+        public int AlbumRatingId { get; set; }
+
+        
         [ForeignKey(nameof(Album))]
         public int AlbumId { get; set; }
-        public virtual Album Album { get; set; }
+        private Album Album { get; set; }       
+        public string AlbumTitle { get; set; }
+        public string AlbumArtist { get; set; }
 
 
-        [ForeignKey(nameof(Artist_Band))]
-        public int ArtistId { get; set; }
-        public virtual Artist_Band Artist_Band { get; set; }
-
-
-        public int AlbumRatingId { get; set; }
         public Guid AuthorId { get; set; }
 
         public double Rating { get; set; }

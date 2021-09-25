@@ -82,7 +82,7 @@ namespace MyTunesList.Services
                         Artist_Band = entity.Artist_Band,
                         AverageRating = entity.AverageRating,
                         CreatedUtc = entity.ReleaseDate,
-                        ModifiedUtc = entity.ModifiedUtc
+                        ModifiedUtc = entity.DateModified
                     };
             }
         }
@@ -97,7 +97,7 @@ namespace MyTunesList.Services
                         .Single(e => e.SingleId == model.SingleId && e.OwnerId == _singleId);
 
                 entity.Title = model.Title;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                entity.DateModified = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }

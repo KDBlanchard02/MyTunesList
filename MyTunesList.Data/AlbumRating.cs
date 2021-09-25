@@ -21,7 +21,6 @@ namespace MyTunesList.Data
         public int AlbumId { get; set; }
         public virtual Album Album { get; set; }
 
-
         [Required]
         public double Rating { get; set; }
 

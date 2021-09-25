@@ -145,6 +145,14 @@
     <Compile Include="Migrations\202109232325366_Initial.designer.cs">
       <DependentUpon>202109232325366_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109251315383_PendingModelChanges.cs" />
+    <Compile Include="Migrations\202109251315383_PendingModelChanges.designer.cs">
+      <DependentUpon>202109251315383_PendingModelChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109251557292_AddedArtistToAlbumRating.cs" />
+    <Compile Include="Migrations\202109251557292_AddedArtistToAlbumRating.designer.cs">
+      <DependentUpon>202109251557292_AddedArtistToAlbumRating.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleRating.cs" />
@@ -157,6 +165,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202109232325366_Initial.resx">
       <DependentUpon>202109232325366_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109251315383_PendingModelChanges.resx">
+      <DependentUpon>202109251315383_PendingModelChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109251557292_AddedArtistToAlbumRating.resx">
+      <DependentUpon>202109251557292_AddedArtistToAlbumRating.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
