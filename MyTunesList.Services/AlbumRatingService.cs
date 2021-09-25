@@ -48,6 +48,8 @@ namespace MyTunesList.Services
                             {
                                 AlbumRatingId = e.AlbumRatingId,
                                 AuthorId = e.AuthorId,
+                                AlbumTitle = e.Album.AlbumTitle,
+                                ArtistName = e.Album.Artist_Band,
                                 Rating = e.Rating,
                                 ReviewComment = e.ReviewComment,
                                 DateCreated = e.DateCreated,
