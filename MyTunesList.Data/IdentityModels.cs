@@ -33,7 +33,19 @@ namespace MyTunesList.Data
             return new ApplicationDbContext();
         }
 
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
+
+        public DbSet<SingleTrack> SingleTracks { get; set; }
+
+        public DbSet<Artist_Band> Artist_Bands { get; set; }
+
+        public DbSet<SingleRating> SingleRatings { get; set; }
+
+        public DbSet<AlbumRating> AlbumRatings { get; set; }
+
+        public DbSet<Album> Albums { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
                 .Conventions
@@ -44,6 +56,7 @@ namespace MyTunesList.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
+
     }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
