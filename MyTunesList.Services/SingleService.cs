@@ -61,6 +61,8 @@ namespace MyTunesList.Services
 
             }
         }
+
+
         public SingleDetail GetSingleById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -69,6 +71,11 @@ namespace MyTunesList.Services
                     ctx
                         .SingleTracks
                         .Single(e => e.SingleId == id && e.OwnerId == _singleId);
+
+                var reviews = (from x in ctx.SingleRatings where x.SingleId.Equals(id) select x).ToList();
+
+                double avg = (from x in reviews select x.Rating).Average();
+
                 return
                     new SingleDetail
                     {
@@ -76,7 +83,7 @@ namespace MyTunesList.Services
                         Title = entity.Title,
                         Genre = entity.Genre,
                         Artist_Band = entity.Artist_Band,
-                        AverageRating = entity.AverageRating,
+                        AverageRating = avg,
                         ReleaseDate = entity.ReleaseDate,
                     };
             }

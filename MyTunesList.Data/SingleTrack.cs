@@ -24,17 +24,14 @@ namespace MyTunesList.Data
         [Required]
         public Genre Genre { get; set; }
 
-        //removed length, don't really think it's necessary and Kevin isn't here to disagree with me lol
-
         [Required]
         public string Artist_Band { get; set; }
 
         [Display(Name = "Year Released")]
         public int ReleaseDate { get; set; }
 
-        //removed date modified, I don't know why that would need to be a thing
-
         public virtual List<SingleRating> Ratings { get; set; } = new List<SingleRating>();
+
         public double AverageRating { get
             {
                 double totalAverageRating = 0;

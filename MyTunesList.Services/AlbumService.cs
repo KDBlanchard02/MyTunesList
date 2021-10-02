@@ -44,6 +44,11 @@ namespace MyTunesList.Services
                     context
                         .Albums
                         .Single(e => e.AlbumId == id);
+
+                var reviews = (from x in context.AlbumRatings where x.AlbumId.Equals(id) select x).ToList();
+
+                double avg = (from x in reviews select x.Rating).Average();
+
                 return
                     new AlbumDetail
                     {
@@ -52,7 +57,7 @@ namespace MyTunesList.Services
                         AlbumTitle = entity.AlbumTitle,
                         ReleaseYear = entity.ReleaseYear,
                         SongList = entity.SongList,
-                        AverageRating = entity.AverageRating
+                        AverageRating = avg
                     };
             }
         }

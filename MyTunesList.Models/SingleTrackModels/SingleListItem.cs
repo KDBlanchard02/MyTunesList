@@ -19,6 +19,5 @@ namespace MyTunesList.Models
         public Genre Genre { get; set; }
         [Display(Name = "Date Released")]
         public int ReleaseDate { get; set; }
-
     }
 }
